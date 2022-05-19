@@ -20,4 +20,3 @@ namespace RunGroupApplicatiom.Models
         public AppUser? AppUser { get; set; }
     }
 }
-© 2022 GitHub, Inc.

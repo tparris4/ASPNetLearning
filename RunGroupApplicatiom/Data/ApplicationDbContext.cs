@@ -5,14 +5,14 @@ using RunGroupApplicatiom.Models;
 
 namespace RunGroupApplicatiom.Data
 {
-    public class AppliuationDBContext :DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public AppliuationDBContext(DbContextOptions<AppliuationDBContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
 
-        public DbSet<Races> Racess { get; set; }
+        public DbSet<Race> Races { get; set; }
         public DbSet<Club> Clubs { get; set; }
         public DbSet<Address> Addresses { get; set; }
     }

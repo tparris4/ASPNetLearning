@@ -1,16 +1,24 @@
 using Microsoft.EntityFrameworkCore;
 using RunGroupApplicatiom.Data;
+using RunGroupApplicatiom.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<AppliuationDBContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 var app = builder.Build();
+
+// looks for seeddata
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+{
+    //Seed.SeedUsersAndRolesAsync(app);
+    Seed.SeedData(app);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
